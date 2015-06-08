@@ -28,6 +28,7 @@ def ComputeTable(nonterminals, terminals, productions):
                             if p not in table[nonterminal][terminal]:
                                 table[nonterminal][terminal].append(p)
     return table
+
 if __name__=="__main__":
     nonterminals, terminals, productions=LoadRules("cminus-grammer-rules.txt")
     PrintTable(ComputeTable(nonterminals, terminals, productions))

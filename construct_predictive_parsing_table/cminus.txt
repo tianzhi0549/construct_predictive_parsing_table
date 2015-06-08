@@ -1,11 +1,11 @@
+program'->program
 program->declaration-list
 declaration-list->declaration-list declaration
 declaration-list->declaration
 declaration->var-declaration
 declaration->fun-declaration
-var-declaration->type-specifier $ID square-brackets-num
-square-brackets-num->$[ $NUM $] $;
-square-brackets-num->$;
+var-declaration->type-specifier $ID $;
+var-declaration->type-specifier $ID $[ $NUM $] $;
 type-specifier->$int
 type-specifier->$void
 fun-declaration->type-specifier $ID $( params $)
@@ -14,9 +14,8 @@ params->param-list
 params->$void
 param-list->param-list $, param
 param-list->param
-param->type-specifier $ID square-brackets
-square-brackets->$[ $]
-square-brackets->
+param->type-specifier $ID
+param->type-specifier $ID $[ $]
 compound-stmt->${ local-declarations statement-list $}
 local-declarations->local-declarations var-declaration
 local-declarations->
@@ -29,18 +28,15 @@ statement->iteration-stmt
 statement->return-stmt
 expression-stmt->expression $;
 expression-stmt->$;
-selection-stmt->$if $( expression $) statement else-stmt
-else-stmt->$else statement
-else-stmt->
-iteration-stmt->$while $( expression $) statement
-return-stmt->$return return-value
-return-value->$;
-return-value->expression $;
+selection-stmt->$if $( expression $) statement 
+selection-stmt->$if $( expression $) statement $else statement 
+iteration-stmt->$while $( expression $) statement 
+return-stmt->$return $;
+return-stmt->$return expression $;
 expression->var $= expression
 expression->simple-expression
-var->$ID array
-array->
-array->$[ expression $]
+var->$ID
+var->$ID $[ expression $]
 simple-expression->additive-expression relop additive-expression
 simple-expression->additive-expression
 relop->$<
@@ -60,7 +56,7 @@ mulop->$/
 factor->$( expression $)
 factor->var
 factor->call
-factor->$NUM
+factor->NUM
 call->$ID $( args $)
 args->arg-list
 args->

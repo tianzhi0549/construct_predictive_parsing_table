@@ -2,3 +2,5 @@ table.txt
 *.pyproj
 *.sln
 *.suo
+*.pyc
+__pycache__

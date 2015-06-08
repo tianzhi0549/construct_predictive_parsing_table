@@ -1,3 +1,19 @@
+class ProductionList(list):
+    def __init__(self, iterable=[]):
+        super().__init__(iterable)
+
+    def getSubListByLeft(self, left):
+        subList=ProductionList()
+        for p in self:
+            if p.left==left:
+                subList.append(p)
+        return subList
+
+def LoopUntilTrue(fn):
+    while True:
+        if fn():
+            return
+
 class Symbol:
     def __init__(self, name):
         self.name=name
@@ -128,7 +144,7 @@ def LoadRules(fileName):
     fp=open(fileName)
     nonterminals=[]
     terminals=[]
-    productions=[]
+    productions=ProductionList()
     usedName={}
     for l in fp:
         if l=="": continue
