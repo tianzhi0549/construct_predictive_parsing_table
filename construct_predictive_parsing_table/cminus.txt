@@ -8,8 +8,7 @@ var-declaration->type-specifier $ID $;
 var-declaration->type-specifier $ID $[ $NUM $] $;
 type-specifier->$int
 type-specifier->$void
-fun-declaration->type-specifier $ID $( params $)
-fun-declaration->compound-stmt
+fun-declaration->type-specifier $ID $( params $) compound-stmt
 params->param-list
 params->$void
 param-list->param-list $, param
