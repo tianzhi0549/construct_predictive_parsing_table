@@ -195,4 +195,4 @@ startSymbol=productions[0].left
 initState=State(ItemSet(productions, [Item(productions[0], 0)]).closure())
 stateSet=StateSet([initState])
 ComputeStateSet(initState, stateSet, nonterminals+terminals)
-print(Table2JSON(ConstructSLRTable(stateSet)))
+PrintTable((ConstructSLRTable(stateSet)))
